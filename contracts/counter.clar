@@ -1,21 +1,27 @@
-;; Extended Counter Contract with Pause & Access Control
+;; Counter contract for Clarinet 4 with enhanced features
 (define-constant ERR_NOT_OWNER     u1000)
 (define-constant ERR_UNDERFLOW    u1001)
 (define-constant ERR_PAUSED       u1002)
 
-;; Store contract owner, counter value, pause status, and allowed principals
+;; Store the owner (set on deployment)
 (define-data-var owner principal tx-sender)
+
+;; Store the counter value
 (define-data-var counter uint u0)
+
+;; Store pause state
 (define-data-var paused bool false)
+
+;; Store allowed principals (access control)
 (define-data-var allowed-principals (map principal bool) {})
 
-;; Guard: Only owner can call
+;; Helper: Only owner can call
 (define-private (require-owner (caller principal))
   (if (is-eq caller (var-get owner))
       true
       (err ERR_NOT_OWNER)))
 
-;; Guard: Only allowed principals can call
+;; Helper: Only allowed principals can call
 (define-private (require-allowed (caller principal))
   (let ((allowed? (map-get? allowed-principals caller)))
     (if allowed?
@@ -64,9 +70,16 @@
                 (var-set counter new-value)
                 (ok new-value))))))
 
-;; Public: Set counter value (owner only)
+;; Public: Set counter (owner only)
 (define-public (set-counter (new-value uint))
   (begin
     (require-owner tx-sender)
     (var-set counter new-value)
     (ok new-value)))
+
+;; Public: Transfer ownership (owner only)
+(define-public (transfer-ownership (new-owner principal))
+  (begin
+    (require-owner tx-sender)
+    (var-set owner new-owner)
+    (ok true)))
