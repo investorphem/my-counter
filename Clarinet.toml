@@ -1,0 +1,9 @@
+[project]
+name = "my-counter"
+authors = ["Investorphem <you@example.com>"]
+description = "A counter contract with pause and access control features"
+network = "mainnet"  # Set to "mainnet" for live deployment
+
+[contracts.counter]
+path = "contracts/counter.clar"
+depends_on = []
