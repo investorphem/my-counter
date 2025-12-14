@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd counter-frontend && npm install && npm run build",
+  "outputDirectory": "counter-frontend/dist",
+  "installCommand": "npm install --prefix counter-frontend",
+  "framework": null
+}
