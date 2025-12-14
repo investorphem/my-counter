@@ -49,7 +49,7 @@ sbtc_balance = 1_000_000_000
 # stx_address: ST2REHHS5J3CERCRBEPMGH7921Q6PYKAADT7JP2VB
 # btc_address: mweN5WVqadScHdA81aATSdcVr4B6dNokqx
 [accounts.wallet_6]
-mnemonic = "area desk dutch sign gold cricket dawn toward giggle vibrant indoor bench warfare wagon numbe tiny universe sand talk dilemma pottery bone trap buddy"
+mnemonic = "area desk dutch sign gold cricket dawn towardgiggle vibrant indoor bench warfare wagon numbe tiny universe sand talk dilemma pottery bone trap buddy"
 balance = 100_000_000_000_000
 sbtc_balance = 1_000_000_000
 # secret_key: 7036b29cb5e235e5fd9b09ae3e8eec4404e44906814d5d01cbca968a60ed4bfb01
