@@ -111,30 +111,71 @@ function App() {
 
   const connectWallet = async () => {
     console.log('Connect wallet clicked');
+    console.log('User agent:', navigator.userAgent);
+    console.log('Window providers:', {
+      StacksProvider: !!window.StacksProvider,
+      LeatherProvider: !!window.LeatherProvider,
+      ethereum: !!window.ethereum
+    });
     
-    // Use dynamic import to get showConnect
-    try {
-      const { showConnect } = await import('@stacks/connect');
-      console.log('showConnect loaded:', typeof showConnect);
-      
-      showConnect({
-        appDetails: {
-          name: 'Counter DApp',
-          icon: window.location.origin + '/vite.svg',
-        },
-        redirectTo: '/',
-        onFinish: () => {
-          console.log('Auth request sent, page will reload');
-          window.location.reload();
-        },
-        onCancel: () => {
-          console.log('Wallet connection cancelled');
-        },
-        userSession,
-      });
-    } catch (error) {
-      console.error('Error connecting wallet:', error);
-      alert('Error opening wallet connection. Please make sure you have a Stacks wallet installed (Leather or Xverse).');
+    // Check if we're in Leather mobile app
+    const isLeatherApp = navigator.userAgent.includes('Leather') || 
+                         window.LeatherProvider || 
+                         window.StacksProvider;
+    
+    console.log('Is Leather app:', isLeatherApp);
+    
+    if (isLeatherApp && window.StacksProvider) {
+      // Mobile Leather app - use direct provider
+      try {
+        console.log('Using StacksProvider for mobile');
+        const provider = window.StacksProvider;
+        const response = await provider.request('stx_requestAccounts', {});
+        console.log('Provider response:', response);
+        
+        if (response && response.addresses && response.addresses.length > 0) {
+          // Manually create user data
+          const address = response.addresses[0];
+          const mockUserData = {
+            profile: {
+              stxAddress: {
+                mainnet: address,
+                testnet: address
+              }
+            }
+          };
+          setUserData(mockUserData);
+          console.log('Connected via mobile provider:', address);
+        }
+      } catch (error) {
+        console.error('Error with mobile provider:', error);
+        alert('Error connecting to Leather mobile. Error: ' + error.message);
+      }
+    } else {
+      // Desktop browser with extension
+      try {
+        const { showConnect } = await import('@stacks/connect');
+        console.log('showConnect loaded:', typeof showConnect);
+        
+        showConnect({
+          appDetails: {
+            name: 'Counter DApp',
+            icon: window.location.origin + '/vite.svg',
+          },
+          redirectTo: '/',
+          onFinish: () => {
+            console.log('Auth request sent, page will reload');
+            window.location.reload();
+          },
+          onCancel: () => {
+            console.log('Wallet connection cancelled');
+          },
+          userSession,
+        });
+      } catch (error) {
+        console.error('Error connecting wallet:', error);
+        alert('Error opening wallet connection. Please make sure you have a Stacks wallet installed (Leather or Xverse).');
+      }
     }
   };
 
