@@ -27,7 +27,7 @@ The counter contract showcases key blockchain development concepts including acc
 - ✅ **Owner Controls** - Set counter to any value, transfer ownership
 - ✅ **Error Handling** - Comprehensive error codes (underflow, unauthorized, paused)
 - ✅ **Read-Only Functions** - Query counter, owner, and pause status
-- ✅ **Clarity Version 3** - Built with latest Clarity standards
+- ✅ **Clarity Version 4** - Built with latest Clarity standards
 
 ### Frontend Features
 - 🔢 **Real-time Counter Display** - Auto-refreshing every 10 seconds
