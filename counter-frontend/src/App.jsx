@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
-import { AppConfig, UserSession, showConnect } from '@stacks/connect';
-import { StacksMainnet } from '@stacks/network';
-import {
-  callReadOnlyFunction,
-  uintCV,
-  cvToValue,
-} from '@stacks/transactions';
-import { openContractCall } from '@stacks/connect';
+import { AppConfig, UserSession, showConnect, openContractCall } from '@stacks/connect';
+import { STACKS_MAINNET } from '@stacks/network';
+import { uintCV, cvToValue } from '@stacks/transactions';
 import './App.css';
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
@@ -14,7 +9,7 @@ const userSession = new UserSession({ appConfig });
 
 const CONTRACT_ADDRESS = 'SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519';
 const CONTRACT_NAME = 'counter';
-const network = new StacksMainnet();
+const STACKS_API_URL = 'https://api.hiro.so';
 
 function App() {
   const [userData, setUserData] = useState(null);
@@ -42,35 +37,64 @@ function App() {
 
   const fetchCounterData = async () => {
     try {
-      const counterResult = await callReadOnlyFunction({
-        contractAddress: CONTRACT_ADDRESS,
-        contractName: CONTRACT_NAME,
-        functionName: 'get-counter',
-        functionArgs: [],
-        network,
-        senderAddress: CONTRACT_ADDRESS,
-      });
-      setCounter(Number(cvToValue(counterResult)));
+      const counterResponse = await fetch(
+        `${STACKS_API_URL}/v2/contracts/call-read/${CONTRACT_ADDRESS}/${CONTRACT_NAME}/get-counter`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sender: CONTRACT_ADDRESS,
+            arguments: [],
+          }),
+        }
+      );
+      const counterData = await counterResponse.json();
+      if (counterData.okay && counterData.result) {
+        const counterHex = counterData.result;
+        const match = counterHex.match(/^0x01([0-9a-f]+)$/);
+        if (match) {
+          setCounter(parseInt(match[1], 16));
+        }
+      }
 
-      const ownerResult = await callReadOnlyFunction({
-        contractAddress: CONTRACT_ADDRESS,
-        contractName: CONTRACT_NAME,
-        functionName: 'get-owner',
-        functionArgs: [],
-        network,
-        senderAddress: CONTRACT_ADDRESS,
-      });
-      setOwner(cvToValue(ownerResult));
+      const ownerResponse = await fetch(
+        `${STACKS_API_URL}/v2/contracts/call-read/${CONTRACT_ADDRESS}/${CONTRACT_NAME}/get-owner`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sender: CONTRACT_ADDRESS,
+            arguments: [],
+          }),
+        }
+      );
+      const ownerData = await ownerResponse.json();
+      if (ownerData.okay && ownerData.result) {
+        const ownerHex = ownerData.result;
+        const match = ownerHex.match(/^0x05([0-9a-f]{40})$/);
+        if (match) {
+          const versionByte = parseInt(match[1].substring(0, 2), 16);
+          const hashBytes = match[1].substring(2);
+          const c32check = await import('c32check');
+          setOwner(c32check.c32address(versionByte, hashBytes));
+        }
+      }
 
-      const pausedResult = await callReadOnlyFunction({
-        contractAddress: CONTRACT_ADDRESS,
-        contractName: CONTRACT_NAME,
-        functionName: 'is-paused',
-        functionArgs: [],
-        network,
-        senderAddress: CONTRACT_ADDRESS,
-      });
-      setIsPaused(cvToValue(pausedResult));
+      const pausedResponse = await fetch(
+        `${STACKS_API_URL}/v2/contracts/call-read/${CONTRACT_ADDRESS}/${CONTRACT_NAME}/is-paused`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sender: CONTRACT_ADDRESS,
+            arguments: [],
+          }),
+        }
+      );
+      const pausedData = await pausedResponse.json();
+      if (pausedData.okay && pausedData.result) {
+        setIsPaused(pausedData.result === '0x03');
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -108,7 +132,7 @@ function App() {
         contractName: CONTRACT_NAME,
         functionName,
         functionArgs,
-        network,
+        network: STACKS_MAINNET,
         onFinish: (data) => {
           console.log('Transaction:', data.txId);
           setTimeout(fetchCounterData, 3000);
