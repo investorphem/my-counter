@@ -8,7 +8,7 @@ balace = 00_000_000_000_000
 sbtc_balance = 1_000_000_000
 # secret_key: 753b7c01a1a2e86221266a154af739463fce51219d97e4f856cd7200c3bd2a61
 # stx_address: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
-# btc_addess: mqVnk6NPRdhntvfm4hh9vvjiRkFDUuSYsH
+# btc_adess: mqVnk6NPRdhntvfm4hh9vvjiRkFDUuSYsH
 
 [account.wallet_1]
 mnemonic = "sell invite acquire kitten bamboo drastc jelly vivid peae spawntwice guilt pave pen traspty park cbe fragile unaware remain midniht betray rebuil"
