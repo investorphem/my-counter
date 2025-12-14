@@ -3,7 +3,7 @@ import {
   AppConfig, 
   UserSession, 
   openContractCall,
-  connect
+  showConnect
 } from '@stacks/connect';
 import { STACKS_MAINNET } from '@stacks/network';
 import { uintCV, cvToValue } from '@stacks/transactions';
@@ -114,35 +114,24 @@ function App() {
     }
   };
 
-  const connectWallet = async () => {
+  const connectWallet = () => {
     console.log('Connect wallet clicked');
     
-    try {
-      await connect({
-        appDetails: {
-          name: 'Counter DApp',
-          icon: window.location.origin + '/vite.svg',
-        },
-        redirectTo: window.location.origin,
-        onFinish: () => {
-          console.log('Connection initiated, waiting for redirect...');
-        },
-        onCancel: () => {
-          console.log('Wallet connection cancelled');
-        },
-        userSession,
-      });
-    } catch (error) {
-      console.error('Error connecting wallet:', error);
-      
-      // Check if it's a wallet not installed error
-      if (error.message && error.message.includes('No wallet')) {
-        alert('No Stacks wallet detected. Please install Leather Wallet or Xverse from your browser extension store.');
-        window.open('https://leather.io/install-extension', '_blank');
-      } else {
-        alert(`Error connecting wallet: ${error.message || 'Unknown error'}. Please try again.`);
-      }
-    }
+    showConnect({
+      appDetails: {
+        name: 'Counter DApp',
+        icon: window.location.origin + '/vite.svg',
+      },
+      redirectTo: '/',
+      onFinish: () => {
+        console.log('Auth request sent, page will reload');
+        window.location.reload();
+      },
+      onCancel: () => {
+        console.log('Wallet connection cancelled');
+      },
+      userSession,
+    });
   };
 
   const disconnectWallet = () => {
