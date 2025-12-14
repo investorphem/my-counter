@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { AppConfig, UserSession, showConnect, openContractCall } from '@stacks/connect';
+import { 
+  AppConfig, 
+  UserSession, 
+  openContractCall,
+  connect
+} from '@stacks/connect';
 import { STACKS_MAINNET } from '@stacks/network';
 import { uintCV, cvToValue } from '@stacks/transactions';
 import './App.css';
@@ -111,21 +116,21 @@ function App() {
     }
 
     try {
-      await showConnect({
+      const result = await connect({
         appDetails: {
           name: 'Counter DApp',
           icon: window.location.origin + '/vite.svg',
         },
-        redirectTo: '/',
-        onFinish: () => {
-          console.log('Wallet connected');
-          setTimeout(() => window.location.reload(), 100);
+        onFinish: (data) => {
+          console.log('Wallet connected', data);
+          setUserData(data.userSession.loadUserData());
         },
         onCancel: () => {
           console.log('Wallet connection cancelled');
         },
         userSession,
       });
+      console.log('Connect result:', result);
     } catch (error) {
       console.error('Error connecting wallet:', error);
       alert(`Error connecting wallet: ${error.message || 'Unknown error'}. Please try again or install a Stacks wallet.`);
