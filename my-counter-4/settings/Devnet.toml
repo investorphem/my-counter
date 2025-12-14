@@ -23,7 +23,7 @@ mnemonic = "hold excess usual excess ring elephant install account glad dry frag
 balance = 10_000_000_000_000
 sbtc_balance = 1_000_000_000
 # secret_key: 530d9f61984c888536871c6573073bdfc0058896dc1adfe9a6a10dfacadc209101
-# stx_address: ST2Y5V39NHDPWSXMW9QDT3HC3GD6Q6XX4CFRK9AG
+# stx_address: ST2YV39NHDPWSXMW9QDT3HC3GD6Q6XX4CFRK9AG
 # btc_address: muYdXKmX9bByAueDe6KFfHd5Ff1gdN9ErG
 
 [accounts.wallet_3]
