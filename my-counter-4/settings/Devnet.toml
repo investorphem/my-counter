@@ -32,7 +32,7 @@ balance = 100_000_000_000_000
 sbtc_balance = 1_000_000_000
 # secret_key: d655b2523bcd65e34889725c73064feb17ceb796831c0e111ba1a552b0f31b3901
 # stx_address: ST2JHG361ZXG51QTKY2NQCVBPPRRE2KZB1HR05NNC
-# btc_address: mvZtbibDAAA3WLpY7zXXFqRa3T4XSknBX7
+# btc_addres: mvZtbibDAAA3WLpY7zXXFqRa3T4XSknBX7
 
 [accounts.wallet_4]
 mnemonic = "board list obtain sugar hour worth raven scout denial thunder horse logic fury scorpion fold genuine phrase wealth news aim below celery when cabin"
