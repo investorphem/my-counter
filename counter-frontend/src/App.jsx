@@ -100,18 +100,36 @@ function App() {
     }
   };
 
-  const connectWallet = () => {
-    showConnect({
-      appDetails: {
-        name: 'Counter DApp',
-        icon: window.location.origin + '/vite.svg',
-      },
-      redirectTo: '/',
-      onFinish: () => {
-        window.location.reload();
-      },
-      userSession,
-    });
+  const connectWallet = async () => {
+    console.log('Connect wallet clicked');
+    
+    // Check if wallet is available
+    if (!window.StacksProvider && !window.LeatherProvider && !window.XverseProviders) {
+      alert('No Stacks wallet detected. Please install Leather Wallet or Xverse from your browser extension store.');
+      window.open('https://leather.io/install-extension', '_blank');
+      return;
+    }
+
+    try {
+      await showConnect({
+        appDetails: {
+          name: 'Counter DApp',
+          icon: window.location.origin + '/vite.svg',
+        },
+        redirectTo: '/',
+        onFinish: () => {
+          console.log('Wallet connected');
+          setTimeout(() => window.location.reload(), 100);
+        },
+        onCancel: () => {
+          console.log('Wallet connection cancelled');
+        },
+        userSession,
+      });
+    } catch (error) {
+      console.error('Error connecting wallet:', error);
+      alert(`Error connecting wallet: ${error.message || 'Unknown error'}. Please try again or install a Stacks wallet.`);
+    }
   };
 
   const disconnectWallet = () => {
