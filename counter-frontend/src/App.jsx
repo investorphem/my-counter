@@ -25,13 +25,22 @@ function App() {
   const [newValue, setNewValue] = useState('');
 
   useEffect(() => {
-    if (userSession.isSignInPending()) {
-      userSession.handlePendingSignIn().then((userData) => {
+    const checkAuth = async () => {
+      if (userSession.isSignInPending()) {
+        try {
+          const userData = await userSession.handlePendingSignIn();
+          console.log('Sign in completed:', userData);
+          setUserData(userData);
+        } catch (error) {
+          console.error('Error handling pending sign in:', error);
+        }
+      } else if (userSession.isUserSignedIn()) {
+        const userData = userSession.loadUserData();
+        console.log('User already signed in:', userData);
         setUserData(userData);
-      });
-    } else if (userSession.isUserSignedIn()) {
-      setUserData(userSession.loadUserData());
-    }
+      }
+    };
+    checkAuth();
   }, []);
 
   useEffect(() => {
@@ -108,32 +117,31 @@ function App() {
   const connectWallet = async () => {
     console.log('Connect wallet clicked');
     
-    // Check if wallet is available
-    if (!window.StacksProvider && !window.LeatherProvider && !window.XverseProviders) {
-      alert('No Stacks wallet detected. Please install Leather Wallet or Xverse from your browser extension store.');
-      window.open('https://leather.io/install-extension', '_blank');
-      return;
-    }
-
     try {
-      const result = await connect({
+      await connect({
         appDetails: {
           name: 'Counter DApp',
           icon: window.location.origin + '/vite.svg',
         },
-        onFinish: (data) => {
-          console.log('Wallet connected', data);
-          setUserData(data.userSession.loadUserData());
+        redirectTo: window.location.origin,
+        onFinish: () => {
+          console.log('Connection initiated, waiting for redirect...');
         },
         onCancel: () => {
           console.log('Wallet connection cancelled');
         },
         userSession,
       });
-      console.log('Connect result:', result);
     } catch (error) {
       console.error('Error connecting wallet:', error);
-      alert(`Error connecting wallet: ${error.message || 'Unknown error'}. Please try again or install a Stacks wallet.`);
+      
+      // Check if it's a wallet not installed error
+      if (error.message && error.message.includes('No wallet')) {
+        alert('No Stacks wallet detected. Please install Leather Wallet or Xverse from your browser extension store.');
+        window.open('https://leather.io/install-extension', '_blank');
+      } else {
+        alert(`Error connecting wallet: ${error.message || 'Unknown error'}. Please try again.`);
+      }
     }
   };
 
