@@ -248,4 +248,4 @@ Future enhancements planned:
 
 ---
 
-**Built with ❤️ on Stacks** | [View Contract](https://explorer.hiro.so/txid/SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.counter?chain=mainnet) | [Live Demo](#)
+**Built with ❤️ on Stacks by investorphem** | [View Contract](https://explorer.hiro.so/txid/SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519.counter?chain=mainnet) | [Live Demo](https://my-counter-pink.vercel.app/)
