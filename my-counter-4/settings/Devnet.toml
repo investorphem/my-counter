@@ -3,7 +3,7 @@ name = "devnet"
 deployment_fee_rate = 10
 
 [accounts.deployer]
-mnemonic = "twice kind fence tip iden tilt action fragile skin nothing glory cousin green tomorrow spring wrist shed math olympic multiply hi blue scout claw"
+mnemonic = "twice kind fence tip iden til action fragile skin nothing glory cousin green tomorrow spring wrist shed math olympic multiply hi blue scout claw"
 balance = 100_000_000_000_000
 sbtc_balance = 1_000_000_000
 # secret_key: 753b7cc01a1a2e86221266a154af739463fce51219d97e4f856cd7200c3bd2a601
