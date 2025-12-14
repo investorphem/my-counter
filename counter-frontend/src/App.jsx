@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
-import * as StacksConnect from '@stacks/connect';
+import { AppConfig, UserSession, openContractCall } from '@stacks/connect';
 import { STACKS_MAINNET } from '@stacks/network';
 import { uintCV, cvToValue } from '@stacks/transactions';
 import './App.css';
-
-const { AppConfig, UserSession, openContractCall, showConnect } = StacksConnect;
-
-// Debug: Log what's available
-console.log('StacksConnect exports:', Object.keys(StacksConnect));
-console.log('showConnect type:', typeof showConnect);
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 const userSession = new UserSession({ appConfig });
@@ -115,11 +109,14 @@ function App() {
     }
   };
 
-  const connectWallet = () => {
+  const connectWallet = async () => {
     console.log('Connect wallet clicked');
     
+    // Use dynamic import to get showConnect
     try {
-      console.log('Calling showConnect...');
+      const { showConnect } = await import('@stacks/connect');
+      console.log('showConnect loaded:', typeof showConnect);
+      
       showConnect({
         appDetails: {
           name: 'Counter DApp',
@@ -135,10 +132,9 @@ function App() {
         },
         userSession,
       });
-      console.log('showConnect called successfully');
     } catch (error) {
-      console.error('Error in showConnect:', error);
-      alert('Error opening wallet connection. Error: ' + error.message);
+      console.error('Error connecting wallet:', error);
+      alert('Error opening wallet connection. Please make sure you have a Stacks wallet installed (Leather or Xverse).');
     }
   };
 
