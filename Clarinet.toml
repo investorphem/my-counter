@@ -1,8 +1,0 @@
-[project]
-name = "my-counter"
-authors = ["Investorphem <dracuul54@gmail.com>"]
-network = "mainnet"  # or "testnet" for testing
-
-[contracts.counter]
-path = "contracts/counter.clar"
-depends_on = []
