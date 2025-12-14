@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import { 
-  AppConfig, 
-  UserSession, 
-  openContractCall,
-  showConnect
-} from '@stacks/connect';
+import * as StacksConnect from '@stacks/connect';
 import { STACKS_MAINNET } from '@stacks/network';
 import { uintCV, cvToValue } from '@stacks/transactions';
 import './App.css';
+
+const { AppConfig, UserSession, openContractCall, showConnect } = StacksConnect;
+
+// Debug: Log what's available
+console.log('StacksConnect exports:', Object.keys(StacksConnect));
+console.log('showConnect type:', typeof showConnect);
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 const userSession = new UserSession({ appConfig });
@@ -117,21 +118,28 @@ function App() {
   const connectWallet = () => {
     console.log('Connect wallet clicked');
     
-    showConnect({
-      appDetails: {
-        name: 'Counter DApp',
-        icon: window.location.origin + '/vite.svg',
-      },
-      redirectTo: '/',
-      onFinish: () => {
-        console.log('Auth request sent, page will reload');
-        window.location.reload();
-      },
-      onCancel: () => {
-        console.log('Wallet connection cancelled');
-      },
-      userSession,
-    });
+    try {
+      console.log('Calling showConnect...');
+      showConnect({
+        appDetails: {
+          name: 'Counter DApp',
+          icon: window.location.origin + '/vite.svg',
+        },
+        redirectTo: '/',
+        onFinish: () => {
+          console.log('Auth request sent, page will reload');
+          window.location.reload();
+        },
+        onCancel: () => {
+          console.log('Wallet connection cancelled');
+        },
+        userSession,
+      });
+      console.log('showConnect called successfully');
+    } catch (error) {
+      console.error('Error in showConnect:', error);
+      alert('Error opening wallet connection. Error: ' + error.message);
+    }
   };
 
   const disconnectWallet = () => {
