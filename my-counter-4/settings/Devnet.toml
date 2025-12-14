@@ -19,7 +19,7 @@ sbtc_balance = 1_000_000_000
 # btc_address: mr1iPkD9N3RJZZxXRk7xF9d36gffa6exNC
 
 [accounts.wallet_2]
-mnemonic = "hold excess usual excess ring elephant install account glad dry fragile donkey gaze humble truck breeze nation gasp vacuum limb head keep delay hospital"
+mnemonic = "hold excess usual excess ring elephant install account glad dry fragile donkey gaze humble truckbreeze nation gasp vacuum limb head keep delay hospital"
 balance = 10_000_000_000_000
 sbtc_balance = 1_000_000_000
 # secret_key: 530d9f61984c888536871c6573073bdfc0058896dc1adfe9a6a10dfacadc209101
