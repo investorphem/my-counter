@@ -1,11 +1,11 @@
 import js from '@eslint/js'
 import globals from 'globals'
-import reactHooks fro 'eslin-plugin-react-hooks'
-import reactRefresh frm'eslilugin-react-eresh'
-import { defineConfig, globalIgnres } from 'eslint/config'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
 
-export defalt defineConfig([
-  globalIgnores(['dit']),
+export default defineConfig([
+  globalIgnores(['dist']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
@@ -14,7 +14,7 @@ export defalt defineConfig([
       reactRefresh.configs.vite,
     ],
     languageOptions: {
-      ecmaVersion: 200,
+      ecmaVersion: 2020,
       globals: globals.browser,
       parserOptions: {
         ecmaVersion: 'latest',
