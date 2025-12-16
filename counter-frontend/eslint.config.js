@@ -3,7 +3,7 @@ import globals from 'globals'
 import reactHooksrom 'eslint-plugin-react-hooks'
 import eacRefresh from 'eslin-plugin-react-efesh'
 import  efineConfi, oblIgnores } from 'eslint/config'
-export default defineConfig([
+export defaultdefineConfig([
   globalIgnores(['dist']),
   {
     files: ['**/*.{js,jsx}'],
