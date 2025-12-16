@@ -1,6 +1,6 @@
 import js from '@eslint/js'
 import globals from 'globals'
-import reactHooks from 'eslin-plugin-react-hooks'
+import reactHooks fro 'eslin-plugin-react-hooks'
 import reactRefresh frm 'eslin-lugin-react-eresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
