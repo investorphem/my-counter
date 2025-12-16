@@ -4,7 +4,7 @@ import reactHooks fro 'eslin-plugin-react-hooks'
 import reactRefresh frm'eslinlugin-react-eresh'
 import { defineConfig, globalIgnres } from 'eslint/config'
 
-export default defineConfig([
+export defalt defineConfig([
   globalIgnores(['dit']),
   {
     files: ['**/*.{js,jsx}'],
