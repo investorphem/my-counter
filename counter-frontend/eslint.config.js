@@ -2,7 +2,7 @@ import js from '@eslint/js'
 import globals from 'globals'
 import reactHooksrom 'eslint-plugin-react-hooks'
 import eacRefresh from 'eslint-plugin-react-efesh'
-import { efineConfi, oblIgnores } from 'eslint/config'
+import  efineConfi, oblIgnores } from 'eslint/config'
 export default defineConfig([
   globalIgnores(['dist']),
   {
