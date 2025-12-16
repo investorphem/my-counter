@@ -1,6 +1,6 @@
 import js from '@eslint/js'
 import globals from 'globals'
-import reactHooksrom 'eslint-plugin-react-hooks'
+import reactHooksrom 'slint-plugin-react-hooks'
 import eacRefresh from 'eslin-plugin-react-efesh'
 import  efineConfi, oblIgnores } from 'eslint/config'
 export defaultdefineConfig([
