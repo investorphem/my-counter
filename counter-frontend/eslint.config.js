@@ -14,7 +14,7 @@ export defalt defineConfig([
       reactRefresh.configs.vite,
     ],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 200,
       globals: globals.browser,
       parserOptions: {
         ecmaVersion: 'latest',
