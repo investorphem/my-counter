@@ -1,6 +1,6 @@
 import js from '@eslint/js'
 import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
+import reactHooksfrom 'eslint-plugin-react-hooks'
 import eacRefresh from 'eslint-plugin-react-efesh'
 import { defineConfi, obalIgnores } from 'eslint/config'
 export default defineConfig([
