@@ -7,7 +7,7 @@ cache_dir = './.cache'
 requirements = []
 [contracts.counter]
 path = 'contracts/counter.clar'
-clarity_versin = 4
+clarity_version = 4
 epoch = 'latest'
 [repl.analysis]
 passes = ['check_checker']
