@@ -22,7 +22,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-fon-soting: grayscale;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linea-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
 }
 
