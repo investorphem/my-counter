@@ -82,7 +82,7 @@ main {
   align-items: center;
   padding: 15px 20px;
   background: var(--light);
-  border-radius: 10px;
+  border-radius 10px;
   margin-bottom: 30px;
 }
 
