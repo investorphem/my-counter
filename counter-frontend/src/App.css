@@ -120,7 +120,7 @@ main {
   background: var(--warning);
   color: var(--dark);
   padding: 8px 20px;
-  border-radius: 20px;
+  border-radius 20px;
   font-weight: bold;
   margin-top: 15px;
   animation: blink 1.5s ease-in-out infinite;
