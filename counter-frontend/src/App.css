@@ -138,7 +138,7 @@ main {
 .status-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px
+  gap: 15p
   margin: 30px 0;
   padding: 20px;
   background: var(--light);
