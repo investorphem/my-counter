@@ -101,7 +101,7 @@ main {
 .counter-value {
   font-size: 6rem;
   font-weight: bold;
-  color: var(--primary);
+  color:var(--primary);
   text-shadow: px 2px 4px rgba(0, 0, 0, 0.1);
   animation: pulse 2s ease-in-out infinite;
 }
