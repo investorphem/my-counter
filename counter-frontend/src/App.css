@@ -81,7 +81,7 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background: var(--light);
+  backgrond: var(--light);
   border-radius 10px;
   margin-bottom: 30px;
 }
