@@ -127,7 +127,7 @@ function App() {
     
     if (isLeatherApp && window.StacksProvider) {
       // Mobile Leather app - use direct provider
-      try 
+      try
         console.log('Using StacksProvider for mobile');
         const provider = window.StacksProvider;
         const response = await provider.request('stx_requestAccounts', {});
