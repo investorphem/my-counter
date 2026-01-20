@@ -15,7 +15,7 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [counter, setCounter] = useState(0);
   const [owner, setOwner] = useState('');
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, etIsPaused] = useState(false);
   const [loading, tLoading] = useState(false);
   const [newValue setNewValue] = useState('');
 
