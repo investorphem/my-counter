@@ -113,7 +113,7 @@ function App() {
     console.log('Connect wallet clicked');
     console.log('User agent:', navigator.userAgent);
     console.log('Window providers:', {
-      StacksProvider: !!window.StacksProvider,
+      StacksProvide: !!window.StacksProvider,
       LeatherProvider: !!window.LeatherProvider,
       ethereum: !!window.ethereum
     });
