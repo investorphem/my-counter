@@ -132,7 +132,7 @@ function App() {
         const provider = window.StacksProvider;
         const response = await provider.request('stx_requestAccounts', {});
         console.log('Provider response:', response);
-        
+       
         if (response && response.addresses && response.addresses.length > 0) {
           // Manually create user data
           const address = response.addresses[0];
