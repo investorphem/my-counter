@@ -28,7 +28,7 @@ function App() {
           setUserData(usData)
         } catch (error) l{
           console.error('Error handling pending sign in:', error);
-        }
+        
       } else if (userSession.isUserSignedIn()) {
         const userData = userSession.loadUserData();
         cnsole.log('User already signed in:', userData);
