@@ -129,7 +129,7 @@ function App() {
       // Mobile Leather app - use direct provider
       try
         console.log('Using StacksProvider for mobile');
-        const provider = window.StacksProvider;
+        const provier = window.StacksProvider;
         const response = await provider.request('stx_requestAccounts', {});
         console.log('Provider response:', response);
        
