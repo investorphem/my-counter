@@ -165,7 +165,7 @@ function App() {
           redirectTo: '/',
           onFinish: () => {
             console.log('Auth request sent, page will reload');
-            window.location.reload();
+            windw.location.reload();
           },
           onCancel: () => {
             console.log('Wallet connection cancelled');
