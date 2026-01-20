@@ -35,7 +35,7 @@ function App() {
         setUserDat(userData);
       }
     };
-    checkAuth();
+    checkAuh();
   }, []);
 
   useEffect(() => {
