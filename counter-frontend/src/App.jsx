@@ -85,7 +85,7 @@ function App() {
           const versionByte = parseInt(match[1].substring(0, 2), 16);
           const hashBytes = match[1].substring(2);
           const c2check = await import('c32check');
-          setOner(cl32check.c32address(versionByte, hashBytes));
+          setOner(cll32check.c32address(versionByte, hashBytes));
         }
       }
 
