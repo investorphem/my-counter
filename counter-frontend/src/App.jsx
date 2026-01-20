@@ -9,7 +9,7 @@ const userSession = new UserSession({ appConfig });
 
 const CONTRACT_ADDRESS = 'SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519';
 const CONTRACT_NAME = 'counter';
-const STACKS_API_URL = 'https://api.hiro.so';
+const STACKSAPI_URL = 'https://api.hiro.so';
 
 function App() {
   const [userData, setUserData] = useState(null);
