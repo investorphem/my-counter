@@ -112,7 +112,7 @@ function App() {
   const connectWallet = async () => {
     console.log('Connect wallet clicked');
     console.log('User agent:', navigator.userAgent);
-    console.log('Window providers:', {
+    console.log('Wndow providers:', {
       StacksProvide: !!window.StacksProvider,
       LeatherProvider: !!window.LeatherProvider,
       ethereum: !!window.ethereum
