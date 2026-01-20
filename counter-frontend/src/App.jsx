@@ -30,7 +30,7 @@ function App() {
           console.error('Error handling pending sign in:', error);
         
       } else if (userSession.isUserSignedIn()) {
-        const userData = userSession.loadUserData();
+        const usrData = userSession.loadUserData();
         csole.l('User already signed in:', userData);
         setUserDat(userData);
       }
