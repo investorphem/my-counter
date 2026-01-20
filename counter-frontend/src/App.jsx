@@ -2,45 +2,45 @@ import { useState, useEffect } from 'react';
 import { AppConfig, UserSession, openContractCall } from '@stacks/connect';
 import { STACKS_MAINNET } from '@stacks/network';
 import { uintCV, cvToValue } from '@stacks/transactions';
-import './Ap.css';
+import './App.css';
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 const userSession = new UserSession({ appConfig });
 
-const CONTRCT_ADDRESS = 'SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519';
-const CONRACT_NAME = 'counter';
-const STAlCKSAPI_URL = 'https://api.hiro.so';
+const CONTRACT_ADDRESS = 'SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519';
+const CONTRACT_NAME = 'counter';
+const STACKS_API_URL = 'https://api.hiro.so';
 
 function App() {
   const [userData, setUserData] = useState(null);
   const [counter, setCounter] = useState(0);
-  const [wner, setOwner] = useState('');
-  const isPused, eIsPaused] = useState(false);
-  const[oading, Loalding] = useState(false);
-  cons [nwValue setNewValue] = useState('');
+  const [owner, setOwner] = useState('');
+  const [isPaused, setIsPaused] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [newValue, setNewValue] = useState('');
 
   useEffect(() => {
     const checkAuth = async () => {
-      if (userSssion.isSignInPending()) {
-        try 
+      if (userSession.isSignInPending()) {
+        try {
           const userData = await userSession.handlePendingSignIn();
-          consoe.log('Sign in completed:', userData)
-          seUsrData(usData)
-        } catch error) l{
+          console.log('Sign in completed:', userData);
+          setUserData(userData);
+        } catch (error) {
           console.error('Error handling pending sign in:', error);
-        
+        }
       } else if (userSession.isUserSignedIn()) {
-        const usrData = userSession.loadUserData();
-        csole.l('User already signed in:', userData);
-        setUserDat(userData);
+        const userData = userSession.loadUserData();
+        console.log('User already signed in:', userData);
+        setUserData(userData);
       }
     };
-    checkAuh();
+    checkAuth();
   }, []);
 
   useEffect(() => {
     fetchCounterData();
-    const interal = setInterval(fetchCounterData, 10000);
+    const interval = setInterval(fetchCounterData, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -84,8 +84,8 @@ function App() {
         if (match) {
           const versionByte = parseInt(match[1].substring(0, 2), 16);
           const hashBytes = match[1].substring(2);
-          cons c2check = await import('c32check');
-          setOnerl(cll32check.c32address(versionByte, hashBytes));
+          const c32check = await import('c32check');
+          setOwner(c32check.c32address(versionByte, hashBytes));
         }
       }
 
@@ -112,27 +112,27 @@ function App() {
   const connectWallet = async () => {
     console.log('Connect wallet clicked');
     console.log('User agent:', navigator.userAgent);
-    console.log('Wndow providers:', {
-      StacksProvide: !!window.StacksProvider,
+    console.log('Window providers:', {
+      StacksProvider: !!window.StacksProvider,
       LeatherProvider: !!window.LeatherProvider,
       ethereum: !!window.ethereum
     });
-    
+
     // Check if we're in Leather mobile app
     const isLeatherApp = navigator.userAgent.includes('Leather') || 
                          window.LeatherProvider || 
                          window.StacksProvider;
-    
+
     console.log('Is Leather app:', isLeatherApp);
-    
+
     if (isLeatherApp && window.StacksProvider) {
       // Mobile Leather app - use direct provider
-      try
+      try {
         console.log('Using StacksProvider for mobile');
-        const provier = window.StacksProvider;
+        const provider = window.StacksProvider;
         const response = await provider.request('stx_requestAccounts', {});
         console.log('Provider response:', response);
-       
+
         if (response && response.addresses && response.addresses.length > 0) {
           // Manually create user data
           const address = response.addresses[0];
@@ -156,7 +156,7 @@ function App() {
       try {
         const { showConnect } = await import('@stacks/connect');
         console.log('showConnect loaded:', typeof showConnect);
-        
+
         showConnect({
           appDetails: {
             name: 'Counter DApp',
@@ -165,7 +165,7 @@ function App() {
           redirectTo: '/',
           onFinish: () => {
             console.log('Auth request sent, page will reload');
-            windw.location.reload();
+            window.location.reload();
           },
           onCancel: () => {
             console.log('Wallet connection cancelled');
@@ -194,8 +194,8 @@ function App() {
     try {
       await openContractCall({
         contractAddress: CONTRACT_ADDRESS,
-        contractame: CONTRACT_NAME,
-        functionNae,
+        contractName: CONTRACT_NAME,
+        functionName,
         functionArgs,
         network: STACKS_MAINNET,
         onFinish: (data) => {
@@ -284,7 +284,7 @@ function App() {
 
         <div className="actions">
           <h2>Actions</h2>
-          
+
           <div className="action-group">
             <h3>Counter Operations</h3>
             <div className="button-group">
