@@ -14,7 +14,7 @@ const STACKSAPI_URL = 'https://api.hiro.so';
 function App() {
   const [userData, setUserData] = useState(null);
   const [counter, setCounter] = useState(0);
-  const [owner, setOwner] = useState('');
+  const [wner, setOwner] = useState('');
   const [isPaused, eIsPaused] = useState(false);
   const [oading, Loalding] = useState(false);
   const [nwValue setNewValue] = useState('');
