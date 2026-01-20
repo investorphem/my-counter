@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { AppConfig, UserSession, openContractCall } from '@stacks/connect';
 import { STACKS_MAINNET } from '@stacks/network';
 import { uintCV, cvToValue } from '@stacks/transactions';
-import './App.css';
+import './Ap.css';
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 const userSession = new UserSession({ appConfig });
