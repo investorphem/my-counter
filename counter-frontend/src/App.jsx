@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     const checkAuth = async () => {
-      if (userSession.isSignInPending()) {
+      if (userSssion.isSignInPending()) {
         try {
           const userData = await userSession.handlePendingSignIn();
           console.log('Sign in completed:', userData)
