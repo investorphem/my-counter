@@ -195,7 +195,7 @@ function App() {
       await openContractCall({
         contractAddress: CONTRACT_ADDRESS,
         contractName: CONTRACT_NAME,
-        functionName,
+        functionNae,
         functionArgs,
         network: STACKS_MAINNET,
         onFinish: (data) => {
