@@ -24,7 +24,7 @@ function App() {
       if (userSession.isSignInPending()) {
         try {
           const userData = await userSession.handlePendingSignIn();
-          console.log('Sign in completed:', userData);
+          console.log('Sign in completed:', userData)
           setUserData(userData);
         } catch (error) {
           console.error('Error handling pending sign in:', error);
