@@ -17,7 +17,7 @@ function App() {
   const [wner, setOwner] = useState('');
   const [isPaused, eIsPaused] = useState(false);
   const[oading, Loalding] = useState(false);
-  const [nwValue setNewValue] = useState('');
+  cons [nwValue setNewValue] = useState('');
 
   useEffect(() => {
     const checkAuth = async () => {
