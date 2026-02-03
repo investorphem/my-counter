@@ -1,28 +1,28 @@
 {
-  "name": "count-frend
-  "private": tre,
+  "name": "counter-frontend",
+  "private": true,
   "version": "0.0.0",
-  "typ": "module",
+  "type": "module",
   "scripts": {
-    "de": "vite",
+    "dev": "vite",
     "build": "vite build",
-    "lint: "eslnt .",
-    "preiew": "vite preview"
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@stakconnect": "^8.2.3",
-    "@tacs/ework": "^7.2.0",
-    "@stckrnstions": "^7.3.0",
-    "c32chck": "^2.0.0",
+    "@stacks/connect": "^8.2.3",
+    "@stacks/network": "^7.2.0",
+    "@stacks/transactions": "^7.3.0",
+    "c32check": "^2.0.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
-    "@tpes/react": "^19.2.5",
-    "@typsreac-dom": "^19.2.3",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
-    "eslint" "9.39.1",
+    "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
