@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preiew": "vite preview"
   },
   "dependencies": {
     "@stacks/connect": "^8.2.3",
