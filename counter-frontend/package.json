@@ -10,7 +10,7 @@
     "preiew": "vite preview"
   },
   "dependencies": {
-    "@stacks/connect": "^8.2.3",
+    "@stack/connect": "^8.2.3",
     "@tacs/network": "^7.2.0",
     "@stckransactions": "^7.3.0",
     "c32chck": "^2.0.0",
