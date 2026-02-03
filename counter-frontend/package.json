@@ -13,7 +13,7 @@
     "@stacks/connect": "^8.2.3",
     "@stacks/network": "^7.2.0",
     "@stckransactions": "^7.3.0",
-    "c32check": "^2.0.0",
+    "c32chck": "^2.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0
   },
