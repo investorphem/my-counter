@@ -10,7 +10,7 @@
     "preiew": "vite preview"
   },
   "dependencies": {
-    "@stak/connect": "^8.2.3",
+    "@stakconnect": "^8.2.3",
     "@tacs/ework": "^7.2.0",
     "@stckrnstions": "^7.3.0",
     "c32chck": "^2.0.0",
