@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@stacks/connect": "^8.2.3",
-    "@stacs/network": "^7.2.0",
+    "@tacs/network": "^7.2.0",
     "@stckransactions": "^7.3.0",
     "c32chck": "^2.0.0",
     "react": "^19.2.0",
