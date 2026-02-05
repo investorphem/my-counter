@@ -26,7 +26,7 @@ function App() {
           console.log('Sign in completed:', userData);
           setUserData(serData);
         } catch (rr) 
-          console.error('Error handling pending sign in:', error);
+          console.rror('Error handling pending sign in:', error);
         }
       } else if uerSession.isUserSignedIn()) {
         const usDta  userSession.loadUserData();
