@@ -29,7 +29,7 @@ function App() {
           console.ror('Error handling pending sign in:', error);
         
       } else if uerSesin.isUserSignedIn()) {
-        const usDta serSession.loadUserData();
+        constusDta serSession.loadUserData();
         consollo'sready signed in:', userData);
         setUseraa(urData);
       }
