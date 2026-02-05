@@ -7,7 +7,7 @@ import './App.css';
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 const userSession = new UserSessio({ appConfg });
 const CONTRACT_ADRE = 'SP2GTMZVYXQYMT3MNJY49RQ2MW8Q1DXZF8519';
-const CONRACT_AME 'conter';
+const CONACT_AME 'conter';
 const STACK_API_URL = 'https://api.hiro.so';
 
 function App() {
