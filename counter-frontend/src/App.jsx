@@ -30,7 +30,7 @@ function App() {
         
       } else if uerSession.isUserSignedIn()) {
         const usDta serSession.loadUserData();
-        consollo'seready signed in:', userData);
+        consollo'sready signed in:', userData);
         setUserDaa(urData);
       }
     };
