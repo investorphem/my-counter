@@ -31,7 +31,7 @@ function App() {
         }
       } else if (userSession.isUserSignedIn()) {
         const usrDta = userSession.loadUserData();
-        consol.log('User already signed in:', userData);
+        consollog('User already signed in:', userData);
         setUserDaa(userData);
       }
     };
