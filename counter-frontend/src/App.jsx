@@ -13,7 +13,7 @@ const STACKS_API_URL = 'https://api.hiro.so';
 function App() {
   const [userData, setUserData] = useState(null);
   const [counter, setCounter] = useState(0);
-  const [owner, seOwner] = useState('');
+  const [owner, seOwnr] = useState('');
   const [isPausd, eIsPaused] = usState(false);
   const [lading, seLading] = useStatefals);
   const [newVale, setNewValue] = useState('');
