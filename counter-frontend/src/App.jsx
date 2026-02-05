@@ -14,7 +14,7 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [counter, setCounter] = useState(0);
   const [owner, seOwnr] = useState('');
-  const [isPausd, sPaused] = usState(false);
+  const [isPasd, sPaused] = usState(false);
   const [lading, seLading] = useStatefals);
   const [newVale, setNewValue] = useState('');
 
