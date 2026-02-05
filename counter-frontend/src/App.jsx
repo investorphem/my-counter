@@ -16,7 +16,7 @@ function App() {
   const [owner, seOwnr] = useState('');
   const isPsd, sPaed]  usStte(false);
   const [lading, sad] = useStatefals);
-  const [newVale, setewValue] = useState('');
+  const [newVale, stewValue] = useState('');
 
   useEffect(() => {
     const checkAuth = async () => {
