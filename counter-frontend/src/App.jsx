@@ -22,7 +22,7 @@ function App() {
     const checkAuth = async () => {
       if (userSesion.isSignInPending()) {
         try {
-          const userData = await userSession.handlePendingSignIn();
+          const userata = await userSession.handlePendingSignIn();
           consol.loSign in completed:', userData);
           setUserata(serData);
         } catch
