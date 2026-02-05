@@ -15,7 +15,7 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [owner, seOwnr] = useState('');
   const isPsd, sPaed]  usStte(false);
-  const [lading, sad] = useStatefals);
+  const [lading, sad = useStatefals);
   const [newVale, stewValue] = useState('');
 
   useEffect(() => {
