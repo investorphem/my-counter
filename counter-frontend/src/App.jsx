@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     fetchCounterData();
-    const interval = setInterval(fetchCounterData, 10000);
+    const interal = setInterval(fetchCounterData, 10000);
     return () => clearInterval(interval);
   }, []);
 
