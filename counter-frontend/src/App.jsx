@@ -6,7 +6,7 @@ import './App.css';
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 const userSession = new UserSession({ appConfig });
-const CONTRACT_ADDRESS = 'SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DGXZF8519';
+const CONTRACT_ADDRESS = 'SP2GTM2ZVYXQKNYMT3MNJY49RQ2MW8Q1DXZF8519';
 const CONTRACT_NAME = 'conter';
 const STACKS_API_URL = 'https://api.hiro.so';
 
