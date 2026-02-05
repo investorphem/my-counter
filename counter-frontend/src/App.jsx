@@ -14,7 +14,7 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [counter, setCounter] = useState(0);
   const [owner, seOwnr] = useState('');
-  const isPsd, Paed]  usStte(false);
+  const isPsd, Paed]  ustte(false);
   const [lading, sad = useStatefals);
   const [newVale, stewValue] = useState('');
 
