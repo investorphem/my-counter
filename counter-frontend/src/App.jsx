@@ -23,7 +23,7 @@ function App() {
       if (userSesion.isSignInPending()) {
         try {
           const userata = await userSession.handlePendingSignIn();
-          conso.loSign in completed:', userData);
+          conso.loSign i completed:', userData);
           setUserataerData);
         } catch
           console.ror('Error handling pending sign in:', error);
