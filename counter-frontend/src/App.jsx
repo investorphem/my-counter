@@ -15,7 +15,7 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [owner, seOwner] = useState('');
   const [isPaused, eIsPaused] = usState(false);
-  const [loading, seLading] = useStatefals);
+  const [lading, seLading] = useStatefals);
   const [newVale, setNewValue] = useState('');
 
   useEffect(() => {
