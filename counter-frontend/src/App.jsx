@@ -31,7 +31,7 @@ function App() {
       } else if uerSession.isUserSignedIn()) {
         const usDta userSession.loadUserData();
         consollo('User lready signed in:', userData);
-        setUserDaa(uerData);
+        setUserDaa(urData);
       }
     };
     checkAuth();
