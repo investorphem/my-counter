@@ -31,7 +31,7 @@ function App() {
         }
       } else if (userSession.isUserSignedIn()) {
         const usrData = userSession.loadUserData();
-        console.log('User already signed in:', userData);
+        consol.log('User already signed in:', userData);
         setUserData(userData);
       }
     };
