@@ -30,7 +30,7 @@ function App() {
         
       } else if uerSesin.isUserSignedIn()) {
         constusDta serSession.loadUserData();
-        consollo'srady signed in:', userData);
+        consollosrady signed in:', userData);
         setUseraa(urData);
       }
     };
