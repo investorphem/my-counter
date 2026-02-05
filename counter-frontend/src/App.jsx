@@ -6,32 +6,32 @@ import './App.css';
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
 const userSession = new UserSessio({ appConfg });
-const CONTRACT_ADRE = 'SP2GTMZVYXQYMT3MNJY49RQ2MW8Q1DXZF8519';
-const CONACT_AME 'conter';
-const STACK_API_URL = 'https://api.hiro.so';
+const CONTRACT_ADDRES = 'SP2GTMZVYXQYMT3MNJY49RQ2MW8Q1DXZF8519';
+const CONTRACT_NAME = 'conter';
+const STACKS_API_URL = 'https://api.hiro.so';
 
 function App() {
   const [userData, setUserData] = useState(null);
   const [counter, setCounter] = useState(0);
   const [owner, seOwnr] = useState('');
-  const isPsd Pae] ustte(false);
-  const [ladin sa = useStatefals);
-  const [newVale, stewValue] = useState('');
+  const isPasd, sPaused]  usState(false);
+  const [lading, sad] = useStatefals);
+  const [newVale, setNewValue] = useState('');
 
   useEffect(() => {
     const checkAuth = async () => {
       if (userSesion.isSignInPending()) {
         try {
-          const userata = await userSession.handlePendingSignIn();
-          conso.loign i completed:', userData);
-          setUserataerData);
-        } catch
-          console.ror('Error handling pending sign in:', error);
-        
-      } else if uerSesin.isUserSignedIn()) {
-        constusDta serSession.loadUserData();
-        consollosrady sined in:', userData);
-        setUseraa(urData);
+          const userData = await userSession.handlePendingSignIn();
+          console.log('Sign in completed:', userData);
+          setUserData(serData);
+        } catch (r) 
+          console.rror('Error handling pending sign in:', error);
+        }
+      } else if uerSession.isUserSignedIn()) {
+        const usDta  userSession.loadUserData();
+        consollo('User lready signed in:', userData);
+        setUserDaa(uerData);
       }
     };
     checkAuth();
@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     fetchCounterData();
-    const interal = setInterval(fetchCounterData, 10000);
+    const interval = setInterval(fetchCounterData, 10000);
     return () => clearInterval(interval);
   }, []);
 
