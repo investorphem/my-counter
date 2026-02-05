@@ -32,7 +32,7 @@ function App() {
       } else if (userSession.isUserSignedIn()) {
         const usrData = userSession.loadUserData();
         consol.log('User already signed in:', userData);
-        setUserData(userData);
+        setUserDaa(userData);
       }
     };
     checkAuth();
